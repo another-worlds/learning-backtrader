@@ -26,7 +26,7 @@ class macd_test(bt.Strategy):
 
     def calculate_size(self):
         ammount = self.p.portfolio_percent * self.broker.cash
-        return floor(ammount / self.data.close)
+        return ammount / self.data.close
 
     def __init__(self):
         self.macd = bt.ind.MACD(period_me1=self.p.macd_short, period_me2=self.p.macd_long, period_signal=self.p.macd_sig)
@@ -54,8 +54,8 @@ class rsi_test(bt.Strategy):
         ("ticker", "SPY")
         )
     def calculate_size(self):
-        print(self.broker.cash, self.broker.cash * self.p.portfolio_percent, floor(self.broker.cash * self.p.portfolio_percent / self.data.close))
-        return floor(self.broker.cash * self.p.portfolio_percent / self.data.close)
+        print(self.broker.cash, self.broker.cash * self.p.portfolio_percent, self.broker.cash * self.p.portfolio_percent / self.data.close)
+        return self.broker.cash * self.p.portfolio_percent / self.data.close
 
     def __init__(self):
         

@@ -25,7 +25,7 @@ cerebro = bt.Cerebro()
 cerebro.broker.set_cash(1000)
 
 # 4. Load data and pass it to cerebro
-spy_prices = pd.read_csv("data/SPY.csv", index_col='Date', parse_dates=True)
+spy_prices = pd.read_csv("../../data/oracle.csv", index_col='Date', parse_dates=True)
 feed = bt.feeds.PandasData(dataname=spy_prices)
 cerebro.adddata(feed)
 

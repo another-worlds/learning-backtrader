@@ -31,7 +31,7 @@ cerebro = bt.Cerebro()
 cerebro.broker.set_cash(1000)
 
 # Load data with pandas and initialize feed
-data = pd.read_csv("data/oracle.csv", index_col="Date", parse_dates=True)
+data = pd.read_csv("../../data/BITSTAMP_BTCUSD_DAY.csv", index_col="Date", parse_dates=True)
 feed = bt.feeds.PandasData(dataname=data)
 
 # Add data to Cerebro
